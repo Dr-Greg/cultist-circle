@@ -9,7 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/ui/calcSelect";
 import {
   Card,
   CardContent,
@@ -28,10 +28,10 @@ export function FeedbackForm({ onClose }: { onClose: () => void }) {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/submit-feedback', {
-        method: 'POST',
+      const response = await fetch("/api/submit-feedback", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ type, description }),
       });

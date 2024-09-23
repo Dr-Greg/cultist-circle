@@ -1,0 +1,80 @@
+{
+  "Killa Full Mask": {
+    "name": "Killa Full Mask",
+    "ingredients": ["Killa Figurine"]
+  },
+  "Gorilla / Ubey Mask": {
+    "name": "Gorilla / Ubey Mask",
+    "ingredients": ["Tagilla Figurine"]
+  },
+  "Golden TT": {
+    "name": "Golden TT",
+    "ingredients": ["Reshala Figurine"]
+  },
+  "3 Vodka": {
+    "name": "3 Vodka",
+    "ingredients": ["Mutkevich Figurine"]
+  },
+  "Sugar & Odbolobs": {
+    "name": "Sugar & Odbolobs",
+    "ingredients": ["Ryzhy Figurine"]
+  },
+  "SCAV BP or SCAV vest": {
+    "name": "SCAV BP or SCAV vest",
+    "ingredients": ["SCAV Figurine"]
+  },
+  "Spooky Skull Mask": {
+    "name": "Spooky Skull Mask",
+    "ingredients": [
+      "Cultist Figurine",
+      "Cultist Figurine",
+      "Cultist Figurine",
+      "Cultist Figurine",
+      "Cultist Figurine"
+    ]
+  },
+  "Grizzly Med": {
+    "name": "Grizzly Med",
+    "ingredients": ["BEAR Figurine"]
+  },
+  "USEC Trooper armour": {
+    "name": "USEC Trooper armour",
+    "ingredients": ["USEC Figurine"]
+  },
+  "Beard oil or Beard": {
+    "name": "Beard oil or Beard",
+    "ingredients": ["Den Figurine"]
+  },
+  "Waist Pouch": {
+    "name": "Waist Pouch",
+    "ingredients": ["Kappa Container"]
+  },
+  "EOD Gamma": {
+    "name": "EOD Gamma",
+    "ingredients": ["Unheard Gamma"]
+  },
+  "2 Green batteries + 2 Tetris": {
+    "name": "2 Green batteries + 2 Tetris",
+    "ingredients": ["BTC"]
+  },
+  "Blue Folder": {
+    "name": "Blue Folder",
+    "ingredients": ["LEDX"]
+  },
+  "Moonshine": {
+    "name": "Moonshine",
+    "ingredients": ["Relaxation Key"]
+  },
+  "Exotic Parrot": {
+    "name": "Exotic Parrot",
+    "ingredients": ["Dunduk Glasses"]
+  },
+  "Awl": {
+    "name": "Awl",
+    "ingredients": ["Soap"]
+  },
+  "2 light bulbs": {
+    "name": "2 light bulbs",
+    "ingredients": ["zarya hand grenades"]
+  }
+}
