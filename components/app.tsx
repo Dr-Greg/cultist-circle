@@ -268,7 +268,7 @@ export function App() {
     dataFetchedRef.current = true;
 
     const cacheKey = isPVE ? PVE_CACHE_KEY : PVP_CACHE_KEY;
-    const apiUrl = isPVE ? "/api/pve-items" : "/api/pvp-items";
+    const apiUrl = isPVE ? "/api/v2/pve-items" : "/api/v2/pvp-items";
 
     try {
       setLoading(true);
@@ -517,7 +517,7 @@ export function App() {
       // Apply filtering heuristics
       validItems = validItems
         .filter((item) => item.basePrice >= threshold * 0.1) // Example: Only items contributing at least 10% to the threshold
-        .filter((item) => !item.bannedOnFlea) // Filter out items that are banned on the flea market
+        // .filter((item) => !item.bannedOnFlea) // Filter out items that are banned on the flea market
         .filter(
           (item) =>
             new Date(item.updated).getTime() > Date.now() - 1000 * 60 * 60 * 24

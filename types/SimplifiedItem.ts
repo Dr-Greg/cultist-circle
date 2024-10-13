@@ -3,10 +3,10 @@
 export interface SimplifiedItem {
   uid: string;
   name: string;
-  basePrice: number; // This represents basePrice
+  basePrice: number;
   price: number;
   updated: string;
-  tags?: string[];
+  tags: string[];
   bannedOnFlea?: boolean;
-  isExcluded?: boolean; // Add this line
+  isExcluded?: boolean;
 }
