@@ -77,7 +77,6 @@ export function SettingsPane({
     onCategoryChange([
       "Barter item",
       "Food and drink",
-      "Equipment",
       "Weapon mod",
       "Special item",
     ]);

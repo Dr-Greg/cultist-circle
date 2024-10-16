@@ -48,7 +48,7 @@ import { resetUserData } from "@/utils/resetUserData";
 //   loading: () => <div>Loading ad...</div>
 // })
 
-const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes in milliseconds
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
 const PVE_CACHE_KEY = "pveItemsCache";
 const PVP_CACHE_KEY = "pvpItemsCache";
 const OVERRIDDEN_PRICES_KEY = "overriddenPrices"; // Storage key for overridden prices
@@ -83,9 +83,9 @@ export function App() {
     // ALL CATEGORIES FROM API //TODO: Check if the categories are correct
     "Barter item",
     "Food and drink",
-    "Equipment",
     "Weapon mod",
     "Special item",
+    // "Equipment",
     // "Armored equipment",
     // "Stackable item",
     // "Weapon",
@@ -107,7 +107,6 @@ export function App() {
   const defaultItemCategories = [
     "Barter item",
     "Food and drink",
-    "Equipment",
     "Weapon mod",
     "Special item",
     // Add any other categories you want as defaults

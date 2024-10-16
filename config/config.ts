@@ -18,4 +18,6 @@ export const IGNORED_ITEMS: string[] = [
   "FP-100 filter absorber",
   "Dogtag USEC",
   "Dogtag BEAR",
+  "Weapon repair kit",
+  "Body armor repair kit",
 ];
