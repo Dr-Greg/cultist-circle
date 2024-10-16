@@ -31,7 +31,7 @@ export async function GET() {
               lastLowPrice
               updated
               categories {
-                normalizedName
+                name
               }
             }
           }
@@ -83,7 +83,7 @@ export async function GET() {
             basePrice: item.basePrice,
             price: item.lastLowPrice!,
             updated: item.updated,
-            tags: item.categories.map((category) => category.normalizedName),
+            tags: item.categories.map((category) => category.name),
           }))
           .sort((a, b) => a.name.localeCompare(b.name));
 

@@ -39,21 +39,21 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Toaster } from "@/components/ui/toaster"; // Import Toaster and useToast
 import { useToast } from "@/hooks/use-toast";
 import TourOverlay from "@/components/tour-overlay";
-import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
+// import dynamic from 'next/dynamic'
+// import { Suspense } from 'react'
 import { resetUserData } from "@/utils/resetUserData";
 
-const AdBanner = dynamic(() => import('@/components/AdBanner'), { 
-  ssr: false,
-  loading: () => <div>Loading ad...</div>
-})
+// const AdBanner = dynamic(() => import('@/components/AdBanner'), {
+//   ssr: false,
+//   loading: () => <div>Loading ad...</div>
+// })
 
 const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes in milliseconds
 const PVE_CACHE_KEY = "pveItemsCache";
 const PVP_CACHE_KEY = "pvpItemsCache";
 const OVERRIDDEN_PRICES_KEY = "overriddenPrices"; // Storage key for overridden prices
 
-const CURRENT_VERSION = '1.0.1' // Increment this when you want to trigger a cache clear
+const CURRENT_VERSION = "1.0.1"; // Increment this when you want to trigger a cache clear
 
 export function App() {
   // Mode state
@@ -80,33 +80,36 @@ export function App() {
     return "az";
   });
   const allItemCategories = [
-    // "Ammo",
-    // "Ammo_boxes",
-    "Barter",
-    "Containers",
-    "Crates",
-    "Currency",
-    "Gear",
-    "Keys",
-    "Magazines",
-    "Maps",
-    "Meds",
-    "Provisions",
-    "Quest_items",
-    "Repair",
-    "Sights",
-    "Special_equipment",
-    "Suppressors",
-    "Tactical_devices",
-    "Weapon",
-    "Weapon_parts",
+    // ALL CATEGORIES FROM API //TODO: Check if the categories are correct
+    "Barter item",
+    "Food and drink",
+    "Equipment",
+    "Weapon mod",
+    "Special item",
+    // "Armored equipment",
+    // "Stackable item",
+    // "Weapon",
+    // "Cylinder Magazine",
+    // "Functional mod",
+    // "Essential mod",
+    // "Gear mod",
+    // "Magazine",
+    // "Lubricant",
+    // "Compound item",
+    // "Meds",
+    // "Key",
+    // "Item",
+    // "Searchable item",
+    // "Muzzle device",
+    // "Sights",
+    // "Special scope",
   ];
   const defaultItemCategories = [
-    "Barter",
-    "Provisions",
-    "Containers",
-    "Maps",
-    "Suppressors",
+    "Barter item",
+    "Food and drink",
+    "Equipment",
+    "Weapon mod",
+    "Special item",
     // Add any other categories you want as defaults
   ];
   const [selectedCategories, setSelectedCategories] = useState<string[]>(() => {
@@ -522,8 +525,9 @@ export function App() {
         // .filter((item) => !item.bannedOnFlea) // Filter out items that are banned on the flea market
         .filter(
           (item) =>
-            new Date(item.updated).getTime() > Date.now() - 1000 * 60 * 60 * 24
-        ) // Filter out items that haven't been updated in the last 24 hours
+            new Date(item.updated).getTime() >
+            Date.now() - 2 * 24 * 60 * 60 * 1000
+        ) // Filter out items that haven't been updated in the last 2 days
         .filter((item) => !excludedItems.has(item.uid)) // Exclude user-excluded items
         .sort((a, b) => b.basePrice / b.price - a.basePrice / b.price) // Sort by value-to-cost ratio
         .slice(0, 100); // Limit to top 100 items
@@ -685,12 +689,12 @@ export function App() {
   }, [isThresholdMet, threshold, toast]);
 
   useEffect(() => {
-    const storedVersion = localStorage.getItem('appVersion')
+    const storedVersion = localStorage.getItem("appVersion");
     if (storedVersion !== CURRENT_VERSION) {
-      clearUserData()
-      localStorage.setItem('appVersion', CURRENT_VERSION)
+      clearUserData();
+      localStorage.setItem("appVersion", CURRENT_VERSION);
     }
-  }, [])
+  }, []);
 
   if (error) {
     return (
@@ -709,23 +713,23 @@ export function App() {
 
   const clearUserData = async () => {
     // Clear local storage
-    localStorage.clear()
+    localStorage.clear();
 
     // Clear cookies via API route
     try {
-      const response = await fetch('/api/expire-cookies')
+      const response = await fetch("/api/expire-cookies");
       if (response.ok) {
-        console.log('Cookies cleared successfully')
+        console.log("Cookies cleared successfully");
       } else {
-        console.error('Failed to clear cookies')
+        console.error("Failed to clear cookies");
       }
     } catch (error) {
-      console.error('Error clearing cookies:', error)
+      console.error("Error clearing cookies:", error);
     }
 
     // Refresh the page to ensure all state is reset
-    window.location.reload()
-  }
+    window.location.reload();
+  };
 
   return (
     <div className="min-h-screen grid place-items-center bg-my_bg_image bg-no-repeat bg-cover text-gray-100 p-4 overflow-auto ">
@@ -783,7 +787,7 @@ export function App() {
                   <li>🟢 Note: ≥350,001 base value = 14h | High-Value item</li>
                   <li>
                     🟢 Note: Flea prices are latest prices provided by
-                    tarkov-market.
+                    tarkov.dev.
                   </li>
                   <Separator className="mt-3 mb-1" />
                   <li>💖 Thank you for checking out the app - Wilsman77</li>
@@ -1040,12 +1044,12 @@ export function App() {
         {/* **11. Footer with Credits and Links** */}
         <footer className="mt-4 text-center text-gray-400 text-sm w-full">
           <a
-            href="https://tarkov-market.com"
+            href="https://tarkov.dev"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-300 transition-colors"
           >
-            Data provided by Tarkov Market
+            Data provided by tarkov.dev
           </a>
           <div className="text-center mt-1">
             Credit to{" "}
@@ -1084,7 +1088,7 @@ export function App() {
               Feedback
             </Button>
           </div>
-          <div className="mt-4">
+          {/* <div className="mt-4">
             <div className="mt-4">
               <Suspense fallback={<div>Loading ad...</div>}>
                 <AdBanner
@@ -1094,7 +1098,7 @@ export function App() {
                 />
               </Suspense>
             </div>
-          </div>
+          </div> */}
         </footer>
       </Card>
       <div className="background-credit">Background by Zombiee</div>

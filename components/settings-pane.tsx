@@ -75,11 +75,11 @@ export function SettingsPane({
   // Reset categories to default
   const handleResetCategories = () => {
     onCategoryChange([
-      "Barter",
-      "Provisions",
-      "Containers",
-      "Maps",
-      "Suppressors",
+      "Barter item",
+      "Food and drink",
+      "Equipment",
+      "Weapon mod",
+      "Special item",
     ]);
   };
 

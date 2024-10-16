@@ -10,7 +10,7 @@ export interface GraphQLItem {
   basePrice: number;
   lastLowPrice: number | null; // Allow null
   updated: string;
-  categories: { normalizedName: string }[];
+  categories: { name: string }[];
 }
 
 export interface GraphQLResponse {
